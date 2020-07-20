@@ -11,7 +11,7 @@ function writePassword() {
 function generatePassword() {
   alert("Let's get you a new password!")
 
-  // User options
+  // User options.
   let userPreferences = {
     "length": 0,
     "lowercase": false,
@@ -89,7 +89,7 @@ function makePassword(pwLength, lowercase, uppercase, numeric, specialchars) {
 // Prompts to choose length.
 function chooseLength() {
   let length = prompt("Choose a length for your password between 8 and 128 characters.")
-  if ((length < 8) || (length > 128)) { //
+  if ((7 < length) && (128 < length)) { 
     alert("You have to pick a number between 8 and 128!")
     chooseLength()
   }
@@ -133,7 +133,7 @@ function chooseSpecialChars() {
 }
 
 
-// Add event listener to generate button
+// Add event listener to generate button.
 $("#generate").on("click", () => {
   writePassword()
 })
