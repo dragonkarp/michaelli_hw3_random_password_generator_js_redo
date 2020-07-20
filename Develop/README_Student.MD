@@ -25,4 +25,4 @@ makePassword() is passed the values in the options object. It has 4 function sco
 The returned password is assigned to a variable in writePassword that outputs it to the page. 
 
 ## Issues
-I was not able to see a pattern, but sometimes, the password doesn't print to the screen. I could not find the bug for this. 
+I was able to find a bug when functionally testing the app. If the user inputs something invalid when asked for a length, or hits cancel, chooseLength() will recursively call itself. If this happens, the length that is eventually returned will be 0, even if the user enters a valid number on the next try. I cannot find the bug, I think it may something to do with scoping. To be clear, the program begins when you click the "generate password" button. in this instance of the program, if the user inputs something invalid into the first prompt, for the rest of the life of this instance, it will always return an empty string. The program then ends. Without refreshing the page, if the user starts a new instance of the program, and enters a valid input for the first prompt, it will work as intended.  

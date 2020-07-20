@@ -3,9 +3,11 @@
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword()
-  let passwordText = document.querySelector("#password")
-  passwordText.value = password
-  // $("#password").val(password)
+  // let passwordText = document.querySelector("#password")
+  // passwordText.value = password
+  console.log(password);
+  console.log(typeof password);
+  $("#password").val(password)
 }
 
 function generatePassword() {
@@ -87,10 +89,11 @@ function makePassword(pwLength, lowercase, uppercase, numeric, specialchars) {
 }
 
 // Prompts to choose length.
+// There is a bug here. I cannot find it, see README_Student.MD for more info. 
 function chooseLength() {
   let length = prompt("Choose a length for your password between 8 and 128 characters.")
   let intLength = parseInt(length)
-  
+
   if ((7 < intLength) && (intLength < 129) && ((typeof intLength) === "number")) {
     return intLength
   }
