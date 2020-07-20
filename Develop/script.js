@@ -89,11 +89,15 @@ function makePassword(pwLength, lowercase, uppercase, numeric, specialchars) {
 // Prompts to choose length.
 function chooseLength() {
   let length = prompt("Choose a length for your password between 8 and 128 characters.")
-  if ((7 < length) && (128 < length)) { 
+  let intLength = parseInt(length)
+  
+  if ((7 < intLength) && (intLength < 129) && ((typeof intLength) === "number")) {
+    return intLength
+  }
+  else {
     alert("You have to pick a number between 8 and 128!")
     chooseLength()
   }
-  else { return length }
 }
 
 // Prompts to choose if they want to include lower cases.
